@@ -30,7 +30,6 @@ def fetch_and_write_data(params, filename):
             followers_count = data.get('followers_count', "Unknown count")
             time_now = datetime.now(korea_timezone)
             formatted_time = time_now.strftime('%Y-%m-%d %H:%M:%S')
-            print(f"{username},{followers_count},{formatted_time}\n")
             with open(filename, 'a') as file:
                 file.write(f"{username},{followers_count},{formatted_time}\n")
         else:
@@ -38,10 +37,12 @@ def fetch_and_write_data(params, filename):
     except Exception as e:
         print(f"Failed: {e}")
 
-try:
-    fetch_and_write_data(params1, 'output_1.txt')
-    fetch_and_write_data(params2, 'output_3.txt')
-    print(f"[{time.strftime('%Y-%m-%d %H:%M:%S')}] Data written successfully. Run {i+1}/12")
-except Exception as e:
-    print(f"[{time.strftime('%Y-%m-%d %H:%M:%S')}] Error occurred: {e}")
-time.sleep(60)
+for i in range(12):
+    try:
+        fetch_and_write_data(params1, 'output_1.txt')
+        fetch_and_write_data(params2, 'output_3.txt')
+        print(f"[{time.strftime('%Y-%m-%d %H:%M:%S')}] Data written successfully. Run {i+1}/12")
+    except Exception as e:
+        print(f"[{time.strftime('%Y-%m-%d %H:%M:%S')}] Error occurred: {e}")
+    if i < 11: 
+        time.sleep(300)
