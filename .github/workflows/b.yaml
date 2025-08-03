@@ -35,10 +35,12 @@ jobs:
           TG_CHAT_ID: ${{ secrets.TG_CHAT_ID }}
         run: python tg.py
 
-      - name: Trigger A again
-        uses: peter-evans/workflow_dispatch@v1.2.0
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          repository: robot4black/Counts
-          workflow: a
-          ref: main
+      - name: Trigger Workflow A via GitHub API
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          curl -X POST \
+            -H "Authorization: Bearer $GH_TOKEN" \
+            -H "Accept: application/vnd.github+json" \
+            https://api.github.com/repos/robot4black/Counts/actions/workflows/a.yml/dispatches \
+            -d '{"ref":"main"}'
