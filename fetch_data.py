@@ -43,4 +43,4 @@ try:
     print(f"[{time.strftime('%Y-%m-%d %H:%M:%S')}] Data written successfully.")
 except Exception as e:
     print(f"[{time.strftime('%Y-%m-%d %H:%M:%S')}] Error occurred: {e}")
-time.sleep(300)
+time.sleep(60)
