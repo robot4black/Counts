@@ -1,11 +1,10 @@
 name: a
 
 on:
+  schedule:
+    - cron: '0 */2 * * *'
   workflow_dispatch:       
-  workflow_run:
-    workflows: ["b"]  
-    types:
-      - completed
+
 jobs:
   fetch_and_send:
     runs-on: ubuntu-latest
