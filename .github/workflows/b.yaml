@@ -36,7 +36,7 @@ jobs:
         run: python tg.py
 
       - name: Trigger A again
-        uses: peter-evans/workflow-dispatch@v1.2.0
+        uses: peter-evans/workflow_dispatch@v1.2.0
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           repository: robot4black/Counts
