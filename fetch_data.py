@@ -11,11 +11,11 @@ one = os.getenv('ONE')
 three = os.getenv('THREE')
 
 params1 = {
-    'fields': 'business_discovery.username({one}){followers_count,username}',
+    'fields': f'business_discovery.username({one}){{followers_count,username}}',
     'access_token': access_token
 }
 params2 = {
-    'fields': 'business_discovery.username({three}){followers_count,username}',
+    'fields': f'business_discovery.username({three}){{followers_count,username}}',
     'access_token': access_token
 }
 
