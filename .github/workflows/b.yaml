@@ -23,10 +23,10 @@ jobs:
 
       - name: Run fetch_data.py
         env:
-          ACCESS_TOKEN: ${{ secrets.access_token }}
-          URL: ${{ secrets.url }}
-          ONE: ${{ secrets.one }}
-          THREE: ${{ secrets.three }}
+          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+          URL: ${{ secrets.URL }}
+          ONE: ${{ secrets.ONE }}
+          THREE: ${{ secrets.THREE }}
         run: python fetch_data.py
 
       - name: Send data
