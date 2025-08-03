@@ -2,10 +2,7 @@ name: b
 
 on:
   workflow_dispatch:       
-  workflow_run:
-    workflows: ["a"]  
-    types:
-      - completed
+
 jobs:
   fetch_and_send:
     runs-on: ubuntu-latest
