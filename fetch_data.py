@@ -38,10 +38,12 @@ def fetch_and_write_data(params, filename):
         print(f"Failed: {e}")
 
 
-try:
-    fetch_and_write_data(params1, 'output_1.txt')
-    fetch_and_write_data(params2, 'output_3.txt')
-    print(f"[{time.strftime('%Y-%m-%d %H:%M:%S')}] Data written successfully. Run {i+1}/12")
-except Exception as e:
-    print(f"[{time.strftime('%Y-%m-%d %H:%M:%S')}] Error occurred: {e}")
-    time.sleep(300)
+for i in range(12):
+    try:
+        fetch_and_write_data(params1, 'output_1.txt')
+        fetch_and_write_data(params2, 'output_3.txt')
+        print(f"[{time.strftime('%Y-%m-%d %H:%M:%S')}] Data written successfully. Run {i+1}/12")
+    except Exception as e:
+        print(f"[{time.strftime('%Y-%m-%d %H:%M:%S')}] Error occurred: {e}")
+    if i < 11: 
+        time.sleep(300)
