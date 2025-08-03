@@ -30,6 +30,7 @@ def fetch_and_write_data(params, filename):
             followers_count = data.get('followers_count', "Unknown count")
             time_now = datetime.now(korea_timezone)
             formatted_time = time_now.strftime('%Y-%m-%d %H:%M:%S')
+            print(f"{username},{followers_count},{formatted_time}\n")
             with open(filename, 'a') as file:
                 file.write(f"{username},{followers_count},{formatted_time}\n")
         else:
