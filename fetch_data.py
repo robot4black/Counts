@@ -32,6 +32,7 @@ def fetch_and_write_data(params, filename):
             formatted_time = time_now.strftime('%Y-%m-%d %H:%M:%S')
             with open(filename, 'a') as file:
                 file.write(f"{username},{followers_count},{formatted_time}\n")
+            print(f"{username},{followers_count},{formatted_time}")    
         else:
             print(f"Error: {response.status_code}")
     except Exception as e:
