@@ -1,4 +1,5 @@
 import requests
+import os
 
 def send_txt_to_discord(webhook_url, filename):
     try:
