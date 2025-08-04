@@ -37,6 +37,11 @@ jobs:
           NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
           NOTION_DATABASE_ID: ${{ secrets.NOTION_DATABASE_ID }}
         run: python send_to_notion.py
+
+      - name: Send to Discord
+        run: python send_to_dis.py
+        env:
+          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
   
       - name: Trigger Workflow B via GitHub API
         env:
