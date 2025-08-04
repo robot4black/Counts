@@ -31,7 +31,13 @@ jobs:
           TG_BOT_TOKEN: ${{ secrets.TG_BOT_TOKEN }}
           TG_CHAT_ID: ${{ secrets.TG_CHAT_ID }}
         run: python tg.py
-        
+
+      - name: Send to Notion
+        env:
+          NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
+          NOTION_DATABASE_ID: ${{ secrets.NOTION_DATABASE_ID }}
+        run: python send_to_notion.py
+  
       - name: Trigger Workflow B via GitHub API
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
