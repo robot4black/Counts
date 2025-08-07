@@ -51,7 +51,7 @@ def fetch_and_write_data(username, filename):
         print(f"Failed: {e}")
 
 
-for i in range(12):
+for i in range(10):
     try:
         fetch_and_write_data(one, 'output_1.txt')
         fetch_and_write_data(three, 'output_3.txt')
