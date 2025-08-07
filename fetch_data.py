@@ -46,6 +46,5 @@ for i in range(12):
         print(f"[{time.strftime('%Y-%m-%d %H:%M:%S')}] Data written successfully. Run {i+1}/12")
     except Exception as e:
         print(f"[{time.strftime('%Y-%m-%d %H:%M:%S')}] Error occurred: {e}")
-    if i < 11: 
-        time.sleep(300)
+    time.sleep(300)
 
