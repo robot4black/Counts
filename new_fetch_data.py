@@ -62,4 +62,4 @@ def loop_fetch(usernames, interval, times):
 
 if __name__ == "__main__":
     usernames = [one, three]
-    loop_fetch(usernames, interval=300, times=6)
+    loop_fetch(usernames, interval=120, times=15)
