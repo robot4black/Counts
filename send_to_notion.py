@@ -55,33 +55,40 @@ def create_page_with_title(title):
     )
     return new_page["id"]
 
+import time
+from notion_client.errors import APIResponseError
 
-def append_file_as_single_block(page_id, filename):
+def append_file_as_single_block(page_id, filename, retries=3, delay=2):
     with open(filename, "r", encoding="utf-8") as f:
         content = f.read().strip()
 
     if not content:
         return
 
-    notion.blocks.children.append(
-        block_id=page_id,
-        children=[
-            {
-                "object": "block",
-                "type": "paragraph",
-                "paragraph": {
-                    "rich_text": [
-                        {
-                            "type": "text",
-                            "text": {
-                                "content": content
-                            }
+    for i in range(retries):
+        try:
+            return notion.blocks.children.append(
+                block_id=page_id,
+                children=[
+                    {
+                        "object": "block",
+                        "type": "paragraph",
+                        "paragraph": {
+                            "rich_text": [
+                                {
+                                    "type": "text",
+                                    "text": {"content": content}
+                                }
+                            ]
                         }
-                    ]
-                }
-            }
-        ]
-    )
+                    }
+                ]
+            )
+        except APIResponseError as e:
+            print(f"[Retry {i+1}/{retries}] Failed to append block: {e}")
+            time.sleep(delay)
+
+    raise Exception(f"Failed to append block after {retries} retries")
 
 def main():
     today = get_today_title()
