@@ -27,18 +27,13 @@ jobs:
           THREE: ${{ secrets.THREE }}
         run: python new_fetch_data.py
 
-      - name: Send to Notion
-        env:
-          NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
-          NOTION_DATABASE_ID: ${{ secrets.NOTION_DATABASE_ID }}
-        run: python send_to_notion.py
 
       - name: Send to Discord
         run: python send_to_dis.py
         env:
           DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
 
-      - name: Trigger Workflow C via GitHub API
+      - name: Trigger Workflow D via GitHub API
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
@@ -47,3 +42,9 @@ jobs:
             -H "Accept: application/vnd.github+json" \
             https://api.github.com/repos/robot4black/Counts/actions/workflows/c.yaml/dispatches \
             -d '{"ref":"main"}'
+
+      - name: Send to Notion
+        env:
+          NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
+          NOTION_DATABASE_ID: ${{ secrets.NOTION_DATABASE_ID }}
+        run: python send_to_notion.py       
