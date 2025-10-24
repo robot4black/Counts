@@ -27,11 +27,6 @@ jobs:
           THREE: ${{ secrets.THREE }}
         run: python new_fetch_data.py
 
-      - name: Send to Notion
-        env:
-          NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
-          NOTION_DATABASE_ID: ${{ secrets.NOTION_DATABASE_ID }}
-        run: python send_to_notion.py
 
       - name: Send to Discord
         run: python send_to_dis.py
@@ -48,4 +43,8 @@ jobs:
             https://api.github.com/repos/robot4black/Counts/actions/workflows/d.yaml/dispatches \
             -d '{"ref":"main"}'
 
-            
+      - name: Send to Notion
+        env:
+          NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
+          NOTION_DATABASE_ID: ${{ secrets.NOTION_DATABASE_ID }}
+        run: python send_to_notion.py       
