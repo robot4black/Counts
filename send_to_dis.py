@@ -22,3 +22,4 @@ def send_txt_to_discord(webhook_url, filename):
 WEBHOOK_URL = webhook_url = os.getenv("DISCORD_WEBHOOK_URL")
 send_txt_to_discord(WEBHOOK_URL, "output_1.txt")
 send_txt_to_discord(WEBHOOK_URL, "output_3.txt")
+send_txt_to_discord(WEBHOOK_URL, "output_4.txt")
