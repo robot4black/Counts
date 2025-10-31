@@ -25,6 +25,7 @@ jobs:
           ORIGIN: ${{ secrets.ORIGIN }}
           ONE: ${{ secrets.ONE }}
           THREE: ${{ secrets.THREE }}
+          FOUR: ${{ secrets.FOUR }}
         run: python new_fetch_data.py
 
 
