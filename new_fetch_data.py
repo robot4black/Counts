@@ -8,10 +8,12 @@ import os
 korea_timezone = pytz.timezone('Asia/Seoul')
 one = os.getenv('ONE')
 three = os.getenv('THREE')
+four = os.getenv('FOUR')
 
 filename_map = {
     one: "output_1.txt",
-    three: "output_3.txt"
+    three: "output_3.txt",
+    four: "output_4.txt"
 }
 
 def fetch_user_data(username):
@@ -61,5 +63,5 @@ def loop_fetch(usernames, interval, times):
             time.sleep(interval)
 
 if __name__ == "__main__":
-    usernames = [one, three]
+    usernames = [one, three, four]
     loop_fetch(usernames, interval=120, times=15)
