@@ -8,7 +8,7 @@ import os
 korea_timezone = pytz.timezone('Asia/Seoul')
 one = os.getenv('ONE')
 three = os.getenv('THREE')
-four = os.getenv('FIVE')
+four = os.getenv('FOUR')
 
 filename_map = {
     one: "output_1.txt",
